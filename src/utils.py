@@ -22,6 +22,11 @@ def operation_output(item):
         cart_from += ' -> '
     else:
         cart_from = ''
+    if amount is None:
+        amount = ''
+    if currency is None:
+        currency = ''
+
     return f"{date} {descr}\n{cart_from}{account_to}\n{amount} {currency}"
 
 
