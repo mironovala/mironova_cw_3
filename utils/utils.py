@@ -2,6 +2,10 @@ import json
 
 
 def get_executed():
+    '''
+    читает файл
+    отдает успешные операции отсортированные по дате от самой последней
+    '''
     with open("utils/operations.json", "r", encoding="utf-8") as file:
         data = json.load(file)
 
@@ -11,6 +15,9 @@ def get_executed():
 
 
 def operation_output(item):
+    '''
+    вывод операции
+    '''
     date = format_date(item.get("date"))
     descr = item.get("description")
     cart_from = format_from_to(item.get("from"))
@@ -31,6 +38,9 @@ def operation_output(item):
 
 
 def format_date(date):
+    '''
+    форматирует  дату в ДД.ММ.ГГГГ
+    '''
     if date is None:
         return ''
     else:
@@ -39,6 +49,9 @@ def format_date(date):
 
 
 def format_from_to(number):
+    '''
+    форматирует информацию о карте/счете для вывода
+    '''
     if number is None:
         return ""
 
@@ -54,6 +67,9 @@ def format_from_to(number):
 
 
 def mask_account(number: str):
+    '''
+    маскирует номер счета в формат **XXXX
+    '''
     if number.isdigit() and len(number) > 4:
         return f"**{number[-4:]}"
     else:
@@ -61,6 +77,9 @@ def mask_account(number: str):
 
 
 def mask_card(number: str):
+    '''
+    маскирует номер карты в формат XXXX XX** **** XXXX
+    '''
     if number.isdigit() and len(number) == 16:
         return f"{number[0:4]} {number[4:6]}** **** {number[-4:]}"
     else:

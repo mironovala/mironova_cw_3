@@ -1,8 +1,8 @@
-from utils.utils import operation_output
-from utils.utils import format_from_to
 from utils.utils import format_date
+from utils.utils import format_from_to
 from utils.utils import mask_account
 from utils.utils import mask_card
+from utils.utils import operation_output
 
 
 def test_get_executed():
