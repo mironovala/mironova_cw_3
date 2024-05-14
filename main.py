@@ -1,5 +1,5 @@
-from utils import get_executed
-from utils import operation_output
+from utils.utils import get_executed
+from utils.utils import operation_output
 
 
 def main():
