@@ -31,8 +31,11 @@ def operation_output(item):
 
 
 def format_date(date):
-    date_raw = date[0:10].split(sep="-")
-    return f"{date_raw[2]}.{date_raw[1]}.{date_raw[0]}"
+    if date is None:
+        return ''
+    else:
+        date_raw = date[0:10].split(sep="-")
+        return f"{date_raw[2]}.{date_raw[1]}.{date_raw[0]}"
 
 
 def format_from_to(number):
